@@ -45,9 +45,9 @@ export default function Home(){
                         </div>
                     </section>
                     <section className="calendar">
-                        {/* <div className="circuito">
+                        <div className="circuito">
                             <img className="circuito_img" src={Circuit} alt="" />
-                        </div> */}
+                        </div>
                         <div className="date">
                             <h1>Próxima Corrida</h1>
                             <h2>Circuito de Puebla</h2>
