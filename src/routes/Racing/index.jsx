@@ -76,14 +76,14 @@ export default function Racing() {
             <a href="https://www.grandepremio.com.br/#google_vignettehttps://www.grandepremio.com.br/#google_vignette" target="_blank"><img src={Parceiro} alt="" /></a>
         </div>
         <div className="cards-container">
-          {corridaData.map((corrida, index) => (
+          {/* {corridaData.map((corrida, index) => (
             <Card
               key={index}
               imageSrc={corrida.imageSrc}
               title={corrida.title}
               videoUrl={corrida.videoUrl}
             />
-          ))}
+          ))} */}
         </div>
 
 
