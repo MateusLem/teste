@@ -72,7 +72,7 @@ export default function Racing() {
 
     return (
       <MainRace>
-        {/* <div className="logo">
+        <div className="logo">
             <a href="https://www.grandepremio.com.br/#google_vignettehttps://www.grandepremio.com.br/#google_vignette" target="_blank"><img src={Parceiro} alt="" /></a>
         </div>
         <div className="cards-container">
@@ -84,7 +84,7 @@ export default function Racing() {
               videoUrl={corrida.videoUrl}
             />
           ))}
-        </div> */}
+        </div>
 
 
 
