@@ -2,16 +2,16 @@ import Card from "../../components/Card";
 import { MainRace } from "./styleRace";
 import FacebookPageEmbed from "../../components/Embed";
 
-import Japan from '../../assets/Japão.png'
-import Brasil from '../../assets/Brasil.png'
-import Alemanha from '../../assets/Alemanha.png'
-import China from '../../assets/China.png'
-import Eua from '../../assets/EUA.png'
-import Diriyah from '../../assets/Diriyah.png'
-import Inglaterra from '../../assets/Inglaterra.png'
-import Italia from '../../assets/Itália.png'
-import Mexico from '../../assets/México.png'
-import Monaco from '../../assets/Mônaco.png'
+import Japan from '../../assets/japao.png'
+import Brasil from '../../assets/brasil.png'
+import Alemanha from '../../assets/alemanha.png'
+import China from '../../assets/china.png'
+import Eua from '../../assets/eua.png'
+import Diriyah from '../../assets/diriyah.png'
+import Inglaterra from '../../assets/inglaterra.png'
+import Italia from '../../assets/italia.png'
+import Mexico from '../../assets/mexico.png'
+import Monaco from '../../assets/monaco.png'
 import Parceiro from '../../assets/parceiro.png'
 
 export default function Racing() {

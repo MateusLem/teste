@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 // imagens
 import Background from "../../assets/bc_img.png"
 import Car from "../../assets/car.png"
-import Circuit from "../../assets/Circuit.png"
-import Controle from "../../assets/Controle.png"
+import Circuit from "../../assets/circuit.png"
+import Controle from "../../assets/controle.png"
 
 export default function Home(){
 
