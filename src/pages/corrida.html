@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <title>ASSISTA</title>
+</head>
+<body>
+    <header>
+        <img src="../../assets/img/logo.png" id="logo" alt="">
+        <nav>
+            <ul>
+                <li><a href="../../index.html">HOME</a></li>
+                <li><a href="corrida.html">CORRIDAS</a></li>
+                <li><a href="prix.html">PRIXPREDICT</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <button class="openbtn" onclick="openNav()">
+                <img id="m" src="../../assets/img/side.png" alt="menu">
+            </button>
+        </div>
+
+        <div class="sidebar">
+            <button class="closebtn" onclick="closeNav()"><img id="x" src="../../assets/img/x.png" alt=""></button>
+            <ul>
+                <li><a href="blog.html">BLOG</a></li>
+                <li><a href="game.html">GAME</a></li>
+            </ul>
+    </header>
+
+    <div class="option">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <a href="https://www.youtube.com/watch?v=XBQOog9QugI" target="_blank"><img src="../../assets/img/1.png" alt="Imagem 1"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.youtube.com/watch?v=XFY6OaAE-zg&t=64s" target="_blank"><img src="../../assets/img/2.png" alt="Imagem 2"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.youtube.com/watch?v=FLMLjZyTeZ8" target="_blank"><img src="../../assets/img/3.png" alt="Imagem 3"></a>
+                </div>
+            </div>
+            <button class="carousel-button next" onclick="nextSlide()"><img src="../../assets/img/seta (2).png" alt=""></button>
+        </div>
+        <a id="parceiro" href="https://www.grandepremio.com.br/"><img src="../../assets/img/parceiro.png" alt=""></a>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
