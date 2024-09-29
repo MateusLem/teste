@@ -2,11 +2,11 @@ import { MainPrix } from './stylePrix';
 import Banner from '../PrixPredict/Banner'
 
 export default function PrixPredict() {
+
     return (
         <>
-            <Banner /> {/* Incluindo o Banner */}
+            <Banner />
             <MainPrix>
-            <img src={Banner} alt="Banner PrixPredict" className="banner_image" />
 
             <h2 className="podia_titulo">Melhores players da temporada:</h2>
             <section className="podio">
@@ -25,7 +25,7 @@ export default function PrixPredict() {
 
         <section className="como_funciona_container">
           <h2 className="como_funciona_titulo">Como Funciona o PrixPredict</h2>
-          <p className="como_funciona_texto">
+          <div className="como_funciona_texto">
             
             O PrixPredict é uma plataforma de apostas exclusiva para o universo da Fórmula E, onde você pode usar seus ePoints para prever diferentes resultados das corridas. Aqui está como funciona:
             <br /><br />
@@ -46,7 +46,7 @@ export default function PrixPredict() {
             <strong>Aposte sem combinações:</strong> No PrixPredict, você só pode fazer uma aposta por vez.
             <br /><br />
             <strong>Exemplo:</strong> Se você tem 1000 ePoints e aposta 200 ePoints que o piloto "X" vai vencer, e as odds estão em 2.5, você receberá 500 ePoints se acertar (200 x 2.5).
-          </p>
+          </div>
         </section>
             </MainPrix>
         </>

@@ -1,46 +1,50 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-const FacebookPageEmbed = () => {
+function FacebookPageEmbed() {
+  const fbContainerRef = useRef(null);
+  const [isSdkLoaded, setIsSdkLoaded] = useState(false);
+
   useEffect(() => {
-    // Carregar o SDK do Facebook
-    if (window.FB) {
-      window.FB.XFBML.parse();
-    } else {
-      const script = document.createElement('script');
-      script.async = true;
-      script.defer = true;
-      script.crossOrigin = 'anonymous';
-      script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0';
-      script.onload = () => {
-        window.FB.XFBML.parse();
-      };
-      document.body.appendChild(script);
-    }
+    const loadFbSdk = () => {
+      if (!window.FB) {
+        const script = document.createElement('script');
+        script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0';
+        script.async = true;
+        script.defer = true;
+        script.onload = () => {
+          window.FB.init({
+            xfbml: true,
+            version: 'v10.0',
+          });
+          setIsSdkLoaded(true);
+        };
+        document.body.appendChild(script);
+      } else {
+        setIsSdkLoaded(true);
+      }
+    };
+
+    loadFbSdk();
   }, []);
 
+  useEffect(() => {
+    if (isSdkLoaded && fbContainerRef.current) {
+      window.FB.XFBML.parse(fbContainerRef.current);
+    }
+  }, [isSdkLoaded]);
+
   return (
-    <div>
-      <div id="fb-root"></div>
-      <div
-        className="fb-page"
+    <div ref={fbContainerRef}>
+      <div className="fb-page"
         data-href="https://www.facebook.com/grandepremio"
-        data-height="450"
-        data-width="700"
-        data-adapt-container-width="true"
-        data-hide-cover="false"
-        data-show-facepile="true"
-        data-show-posts="true"
-      >
-        <blockquote
-          cite="https://www.facebook.com/grandepremio"
-          className="fb-xfbml-parse-ignore"
-        >
+        data-width="700" data-height="450"
+        data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+        <blockquote cite="https://www.facebook.com/grandepremio" className="fb-xfbml-parse-ignore">
           <a href="https://www.facebook.com/grandepremio">Grande Prêmio</a>
         </blockquote>
       </div>
     </div>
   );
-};
+}
 
 export default FacebookPageEmbed;
-

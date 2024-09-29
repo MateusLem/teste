@@ -99,7 +99,6 @@ export default function Card({ imageSrc, title, videoUrl }) {
 
   return (
     <>
-
       <Carta>
         <div className="size">
             <img src={imageSrc} alt={title} />
