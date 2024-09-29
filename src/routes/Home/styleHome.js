@@ -101,6 +101,20 @@ export const MainHome = styled.main`
         flex-direction: column;
     }
 
+    .podioList h1{
+        color: #00C0F9;
+        font-size: 50px;
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+    .podioList p{
+        align-self: center;
+        color: #DC00FE;
+        font-weight: 500;
+        font-size: 30px;
+        margin-left: 4%;
+    }
+
     .line{
         height: 300px;
         width: 5px;
@@ -110,6 +124,8 @@ export const MainHome = styled.main`
     }
 
     .first{
+        display: flex;
+        align-content: center;
         width: 350px;
         height: 80px;
         background-color: #312c9f;
@@ -122,6 +138,7 @@ export const MainHome = styled.main`
     }
 
     .second{
+        display: flex;
         width: 350px;
         height: 80px;
         background-color: #312c9f;
@@ -136,6 +153,7 @@ export const MainHome = styled.main`
     }
 
     .third{
+        display: flex;
         width: 350px;
         height: 80px;
         background-color: #312c9f;

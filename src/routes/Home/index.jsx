@@ -36,9 +36,16 @@ export default function Home() {
                         <div className="podioList">
                             <div className="first">
                                 <h1>1°</h1>
+                                <p>FULANO</p>
                             </div>
-                            <div className="second"></div>
-                            <div className="third"></div>
+                            <div className="second">
+                                <h1>2°</h1>
+                                <p>SICLANO</p>
+                            </div>
+                            <div className="third">
+                                <h1>3°</h1>
+                                <p>TATARANO</p>
+                            </div>
                         </div>
                     </section>
                     <section className="calendar">
