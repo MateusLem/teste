@@ -1,70 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SPRINT</title>
-    <link rel="stylesheet" href="src/css/style.css">
-</head>
-<body>
-    <div class="back" id="nxt">
-        <header>
-            <img src="assets/img/logo.png" id="logo" alt="">
-            <nav>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="src/pages/corrida.html">CORRIDAS</a></li>
-                    <li><a href="src/pages/prix.html">PRIXPREDICT</a></li>
-                </ul>
-            </nav>
-            <div class="content">
-                <button class="openbtn" onclick="openNav()">
-                    <img id="m" src="assets/img/side.png" alt="menu">
-                </button>
-            </div>
-
-            <div class="sidebar">
-                <button class="closebtn" onclick="closeNav()"><img id="x" src="assets/img/x.png" alt=""></button>
-                <ul>
-                    <li><a href="https://www.fiaformulae.com/en" target="_blank">SITE OFICIAL</a></li>
-                    <li><a href="src/pages/game.html">GAME</a></li>
-                </ul>
-            </div>
-        </header>
-        <img id="mahindra" src="assets/img/LogoMahindra2.png" alt="">
-        <div class="podio">
-            <div class="position">
-                <h2>1º</h2>
-                <h2>2º</h2>
-                <h2>3º</h2>
-            </div>
-            <div id="corredores">
-                <div id="primeiro">
-                    <img src="assets/img/corredor 1.png" alt="">
-                    <p>EDOARDO MORTARA</p>
-                </div>
-                <div id="segundo">
-                    <img src="assets/img/corredor 2.png" alt="">
-                    <p>SÉRGIO SETTE</p>
-                </div>
-                <div id="terceiro">
-                    <img src="assets/img/corredor 3.png" alt="">
-                    <p>NYCK DE VRIES</p>
-                </div>
-            </div>
-        </div>
-        <div id="circuito" onclick="openCircuit()">
-            <h2>PRÓXIMO CIRCUITO</h2>
-            <img src="assets/img/icon-circuit.png" alt="">
-        </div>
-        <div id="circuit-content">
-            <button class="closebtn" onclick="closeCircuit()"><img id="x" src="assets/img/x.png" alt=""></button>
-            <img src="assets/img/Circuit.png" alt="">
-        </div>     
-    </div>
-    
-
-
-    <script src="src/js/script.js"></script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
