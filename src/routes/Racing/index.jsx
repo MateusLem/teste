@@ -1,6 +1,6 @@
 import Card from "../../components/Card";
 import { MainRace } from "./styleRace";
-import FacebookPageEmbed from "../../components/Embed";
+import FacebookPageEmbed from "../../components/FacebookPageEmbed";
 import countriesData from '../../data/countries.json'
 import Parceiro from '../../assets/parceiro.png'
 
@@ -24,7 +24,7 @@ export default function Racing() {
 
 
 
-        {/* <div className="parceiro">
+        <div className="parceiro">
             <div className="info">
                 <h1>Prepare-se para acelerar! Assista às segundas corridas, treinos livres e qualificações na Grande Prêmio e fique por dentro de tudo que acontece nas pistas!</h1>
                 <a href="https://www.youtube.com/watch?v=AbQyzkaSH2I&list=PLULYLQYUzB5o4WA6oqGkMfpXXvMtLoAU6&index=61" target='_blank' className="btn"><button className="neon">ASSISTA</button></a>
@@ -32,7 +32,7 @@ export default function Racing() {
             <div className="face">
                 <FacebookPageEmbed/>
             </div>
-        </div> */}
+        </div>
 
       </MainRace>
     );
