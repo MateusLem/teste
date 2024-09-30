@@ -8,14 +8,23 @@ import Car from "../../assets/car.png"
 import Controle from "../../assets/controle.png"
 
 export default function Home() {
+    const getUsuario = localStorage.getItem("usuario")
 
     return (
         <>
             <MainHome>
                 <img src={Background} alt="" />
+                {getUsuario ? (
                 <Link className="btn" to="/game">
-                    <button className="game"><img src={Controle} alt="" />GAME</button>
-                </Link>
+                <button className="game"><img src={Controle} alt="" />GAME</button>
+            </Link>
+
+            ):(
+                <Link className="btn" to="/login">
+                <button className="game"><img src={Controle} alt="" />GAME</button>
+            </Link>
+            )}
+
                 <section className="car">
                     <p className="txt_car">Viva a emoção da Fórmula E: onde a velocidade encontra a paixão!
                         <a href="https://www.fiaformulae.com/en" target="blank">

@@ -108,7 +108,7 @@ export const MainPrix = styled.main`
         width: 170px; /* Expande em largura */
     }
 
-    /* Media queries para responsividade */
+
     @media (max-width: 768px) {
         .podio {
             flex-direction: column;

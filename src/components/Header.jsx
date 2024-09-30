@@ -17,7 +17,7 @@ export default function Header(){
                         <Link to='/'>HOME</Link>
                         <Link to='/corridas'>CORRIDAS</Link>
                         <Link to='/palpite'>PRIXPREDICT</Link>
-                        <Link to="/"><img className="icon" src={iconUser} alt="" /></Link>
+                        <Link to="/login"><img className="icon" src={iconUser} alt="" /></Link>
 
                 </div>
             </NavMenu>

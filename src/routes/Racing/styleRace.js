@@ -86,6 +86,75 @@ export const MainRace = styled.main`
         }
     }
 
+    @media (max-width: 850px) {
+
+        .cards-container {
+            gap: 10px;
+         }
+
+         h1{
+            width: 40%;
+            font-size: large;
+            font-weight: 400;
+            margin-top: 20%;
+            margin-left: 5%;
+        }
+
+        .neon{
+            width: 20%;
+            height: 40px;
+            font-size: medium;
+        }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+        .logo img{
+            width: 50px;
+        }
+
+        .cards-container {
+            grid-template-columns: repeat(2, 45%); 
+            gap: 10px;
+         }
+
+        .parceiro{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .info{
+            position: static;
+        }
+
+        h1{
+            width: 70%;
+            font-size: small;
+            font-weight: 400;
+            margin-left: 15%;
+            margin-top: 10%;
+        }
+
+        .btn{
+            font-size: 30px;
+        }
+
+        .neon{
+            width: 50%;
+            height: 30px;
+            margin-left: 60%;
+            font-size: small;
+        }
+
+        .face{
+            display: none;
+        }
+
+
+    }
+
 
     
 `

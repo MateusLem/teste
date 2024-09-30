@@ -275,6 +275,11 @@ export const MainHome = styled.main`
         .podio{
             width: 100%;
         }
+
+        .podioList h1{
+            font-size: 40px;
+        }
+
         .line{
             height: 31vh;
             width: 2px;
@@ -312,10 +317,10 @@ export const MainHome = styled.main`
             padding: 5px;
         }
         .date button{
-            margin-top: 7%;
+            margin-top: 4%;
             margin-left: 40%;
-            font-size: x-small;
-            height: 2vh;
+            font-size: xx-small;
+            min-height: 2vh;
         }
     }
 

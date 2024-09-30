@@ -4,7 +4,6 @@ function FacebookPageEmbed() {
   const fbRef = useRef(null);
 
   useEffect(() => {
-    // Load Facebook SDK
     if (window.FB) {
       window.FB.XFBML.parse();
     } else {
@@ -22,10 +21,8 @@ function FacebookPageEmbed() {
 
   return (
     <div>
-      {/* Facebook root div for the SDK */}
       <div id="fb-root"></div>
       
-      {/* Embedding the Facebook Page */}
       <div
         className="fb-page"
         data-href="https://www.facebook.com/grandepremio"
