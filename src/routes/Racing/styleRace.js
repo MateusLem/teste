@@ -38,10 +38,11 @@ export const MainRace = styled.main`
         color: #00C0F9;
         font-size: x-large;
         font-weight: 400;
+        margin-left: 15%;
     }
     .face{
         margin-top: 6%;
-        margin-left: 50%;
+        margin-left: 25%;
     }
 
     .btn {
@@ -58,6 +59,7 @@ export const MainRace = styled.main`
         padding: 1.2em 2.8em;
         text-decoration: none;
         text-align: center;
+        margin-left: 11%;
 
         &:hover,
         &:focus {

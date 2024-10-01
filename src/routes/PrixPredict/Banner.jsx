@@ -11,6 +11,7 @@ const BannerImage = styled.img`
   height: 30%;
   display: block;
   object-fit: cover;
+  padding-bottom: 80px;
 `;
  
 const Banner = () => {
