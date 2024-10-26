@@ -98,12 +98,10 @@ const Login = () => {
     }
   };
 
-  // Função para lidar com falhas no login do Google
   const handleLoginFailure = (error) => {
     console.error('Login falhou:', error);
   };
 
-  // Carregar usuários existentes do servidor ao iniciar
   useEffect(() => {
     fetch("http://localhost:5000/usuarios")
       .then(res => res.json())
@@ -112,7 +110,7 @@ const Login = () => {
   }, []);
 
   return (
-    <SecLogin>
+    <SecLogin style={{alignContent:'center', textAlign:'center'}}>
       <section className="container">
         <div className="container-login">
           <div className="login">

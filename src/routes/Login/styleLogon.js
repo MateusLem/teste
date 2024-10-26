@@ -8,14 +8,13 @@ export const SecLogin = styled.section`
     align-items: center;
     height: 60vh;
     color: white;
-    margin-top: 9%;
 
     .container {
         position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: fit-content;
     }
 
     .container-login {
