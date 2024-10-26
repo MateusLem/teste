@@ -36,53 +36,47 @@ function LiveGraph() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Faz o fetch da temperatura
         const temperatureResponse = await fetch(
-          `http://3.149.239.60:1026/v2/entities/urn:ngsi-ld:next_gps/attrs/Temperatura`,
+          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Temperatura`,
           requestOptions
         );
         const temperatureData = await temperatureResponse.json();
         const temperature = temperatureData.value || 0;
-
-        // Log para verificar o retorno da temperatura
         console.log('Temperatura:', temperatureData);
 
-        // Faz o fetch da umidade
         const humidityResponse = await fetch(
-          `http://3.149.239.60:1026/v2/entities/urn:ngsi-ld:next_gps/attrs/Umidade`,
+          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Umidade`,
           requestOptions
         );
         const humidityData = await humidityResponse.json();
         const humidity = humidityData.value || 0;
 
-        // Log para verificar o retorno da umidade
         console.log('Umidade:', humidityData);
 
-        const timestamp = new Date().toLocaleTimeString(); // Marca de tempo para o gráfico
+        const timestamp = new Date().toLocaleTimeString();
 
-        // Atualiza os dados de temperatura, umidade e os rótulos (timestamp)
         setTemperatureData((prevData) => [...prevData, temperature].slice(-10));
         setHumidityData((prevData) => [...prevData, humidity].slice(-10));
         setLabels((prevLabels) => [...prevLabels, timestamp].slice(-10));
 
-        setError(null); // Reseta o erro se a requisição for bem-sucedida
+        setError(null);
       } catch (err) {
-        console.error('Erro ao buscar os dados:', err); // Log de erro
+        console.error('Erro ao buscar os dados:', err); 
         setError("Erro ao buscar dados: " + err.message);
       } finally {
-        setLoading(false); // Finaliza o carregamento inicial
+        setLoading(false);
       }
     };
 
-    fetchData(); // Busca inicial
+    fetchData();
 
-    const interval = setInterval(fetchData, 5000); // Atualiza os dados a cada 5 segundos
+    const interval = setInterval(fetchData, 5000); 
 
-    return () => clearInterval(interval); // Limpa o intervalo quando o componente desmonta
+    return () => clearInterval(interval);
   }, []);
 
   const data = {
-    labels, // Rótulos no eixo X (timestamps)
+    labels,
     datasets: [
       {
         label: 'Temperatura (°C)',
@@ -105,7 +99,7 @@ function LiveGraph() {
     responsive: true,
     scales: {
       x: {
-        type: 'category', // Define o tipo de escala para o eixo X
+        type: 'category', 
         ticks: {
           autoSkip: true,
           maxTicksLimit: 10,
@@ -120,7 +114,7 @@ function LiveGraph() {
   return (
     
     <div>
-      <MainHome>
+      <MainHome style={{textAlign:center}}>
       <h1>Gráfico de Temperatura e Umidade ao Vivo</h1>
       {loading ? (
         <p style={{color: 'white'}}>Carregando gráfico...</p>

@@ -17,11 +17,11 @@ const requestOptions = {
 };
 
 function LiveTracker() {
-  const [position, setPosition] = useState([0, 0]); 
+  const [position, setPosition] = useState([0, 0]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const markerRef = useRef(null); 
+  const markerRef = useRef(null);
 
   useEffect(() => {
     const fetchPosition = async () => {
@@ -45,7 +45,7 @@ function LiveTracker() {
         if (newPosition[0] === 0 && newPosition[1] === 0) {
           setError("Rastreador desativado");
         } else {
-          setPosition(newPosition); 
+          setPosition(newPosition);
           setError(null);
         }
 
@@ -55,7 +55,7 @@ function LiveTracker() {
       } catch (err) {
         setError("Rastreador desativado: " + err.message);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -68,32 +68,32 @@ function LiveTracker() {
 
   return (
     <div>
-      <MainHome>
-      <h1>Rastreador ao Vivo</h1>
-      {loading ? (
-        <p style={{color: "white" }}>Mapa carregando...</p>
-      ) : error ? (
-        <p style={{ color: "red" }}>{error}</p>
-      ) : (
-        <MapContainer
-          center={position}
-          zoom={13}
-          style={{ height: "400px", width: "100%" }}
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <Marker
-            position={position} 
-            ref={markerRef} 
+      <MainHome style={{ textAlign: 'center', alignContent:'center',  alignItems:'center' }}>
+        <h1>Rastreador ao Vivo</h1>
+        {loading ? (
+          <p style={{ color: "white" }}>Mapa carregando...</p>
+        ) : error ? (
+          <p style={{ color: "red" }}>{error}</p>
+        ) : (
+          <MapContainer
+            center={position}
+            zoom={13}
+            style={{ height: "60vh", width: "70%" }}
           >
-            <Popup>
-              Posição Atual: {position[0]}, {position[1]}
-            </Popup>
-          </Marker>
-        </MapContainer>
-      )}
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker
+              position={position}
+              ref={markerRef}
+            >
+              <Popup>
+                Posição Atual: {position[0]}, {position[1]}
+              </Popup>
+            </Marker>
+          </MapContainer>
+        )}
 
 
       </MainHome>
