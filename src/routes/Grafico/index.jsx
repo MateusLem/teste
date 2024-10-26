@@ -114,8 +114,8 @@ function LiveGraph() {
   return (
     
     <div>
-      <MainHome style={{textAlign:center}}>
-      <h1>Gráfico de Temperatura e Umidade ao Vivo</h1>
+      <MainHome >
+      <h1 >Gráfico de Temperatura e Umidade ao Vivo</h1>
       {loading ? (
         <p style={{color: 'white'}}>Carregando gráfico...</p>
       ) : error ? (

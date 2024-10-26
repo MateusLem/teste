@@ -72,6 +72,10 @@ export const MainHome = styled.main`
 	transform: perspective(1.10em) rotateX(40deg) scale(1.5, 0.6);
 	transition: transform 0.5s linear;
 }
+#chart{
+    margin-top:5rem;
+    height: 30vh;
+}
 
 .btn:hover::after,
 .btn:focus::after {
@@ -303,6 +307,11 @@ export const MainHome = styled.main`
         }
     }
     @media (max-width: 500px) {
+        #chart{
+            margin-top:2rem;
+            margin-right:1rem;
+            height: 15vh;
+        }
         .btn{
             width: 100px;
         }
