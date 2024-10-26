@@ -8,7 +8,7 @@ const menu_content = [
     { path: 'game', value: 'GAME' },
     { path: 'corridas', value: 'CORRIDAS' },
     { path: 'palpite', value:'PRIXPREDICT' },
-    { path: 'login', value: <img className="icon" src={iconUser} alt="" /> }
+    { path: 'perfil', value: <img className="icon" src={iconUser} alt="" /> }
 ];
 
 
