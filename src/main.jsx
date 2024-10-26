@@ -56,10 +56,6 @@ const router = createBrowserRouter([
         path:'/graficos',
         element:<LiveGraph/>,
       },
-      {
-        path:'/perfil',
-        element:<User/>,
-      },
     ]
   }
 ])

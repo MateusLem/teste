@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { API_BASE_URL } from '../../config'; // Certifique-se de que o config.js esteja correto
+import { API_BASE_URL } from '../../config';
 import { MainHome } from '../Home/styleHome';
 
-// Registrar os componentes do Chart.js
+
 Chart.register(
-  CategoryScale, // Escala do eixo X
-  LinearScale,   // Escala do eixo Y
+  CategoryScale,
+  LinearScale,
   PointElement,
   LineElement,
   Title,
@@ -30,8 +30,8 @@ function LiveGraph() {
   const [temperatureData, setTemperatureData] = useState([]);
   const [humidityData, setHumidityData] = useState([]);
   const [labels, setLabels] = useState([]);
-  const [error, setError] = useState(null); // Estado para capturar erros
-  const [loading, setLoading] = useState(true); // Estado para carregar o gráfico inicialmente
+  const [error, setError] = useState(null); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
