@@ -38,7 +38,7 @@ function LiveGraph() {
       try {
         // Faz o fetch da temperatura
         const temperatureResponse = await fetch(
-          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Temperatura`,
+          `http://3.149.239.60:1026/v2/entities/urn:ngsi-ld:next_gps/attrs/Temperatura`,
           requestOptions
         );
         const temperatureData = await temperatureResponse.json();
@@ -49,7 +49,7 @@ function LiveGraph() {
 
         // Faz o fetch da umidade
         const humidityResponse = await fetch(
-          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Umidade`,
+          `http://3.149.239.60:1026/v2/entities/urn:ngsi-ld:next_gps/attrs/Umidade`,
           requestOptions
         );
         const humidityData = await humidityResponse.json();
