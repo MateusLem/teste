@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { API_BASE_URL } from "../../../public/config"; // Importa o endereço IP do config.js
+import { API_BASE_URL } from "../../../public/config";
 import { MainHome } from "../Home/styleHome";
 
-// Definir o cabeçalho para as requisições
 const myHeaders = new Headers();
 myHeaders.append("fiware-service", "smart");
 myHeaders.append("fiware-servicepath", "/");
@@ -18,56 +17,53 @@ const requestOptions = {
 };
 
 function LiveTracker() {
-  const [position, setPosition] = useState([0, 0]); // Estado inicial com latitude e longitude 0
-  const [loading, setLoading] = useState(true); // Estado para indicar carregamento inicial
-  const [error, setError] = useState(null); // Estado para capturar erros
+  const [position, setPosition] = useState([0, 0]); 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const markerRef = useRef(null); // Referência para o marcador
+  const markerRef = useRef(null); 
 
   useEffect(() => {
     const fetchPosition = async () => {
       try {
-        // Faz o fetch da latitude usando o IP do arquivo config.js
         const latitudeResponse = await fetch(
           `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Latitude`,
           requestOptions
         );
         const latitudeData = await latitudeResponse.json();
-        const latitude = latitudeData.value; // Pega o valor da latitude
+        const latitude = latitudeData.value;
 
-        // Faz o fetch da longitude usando o IP do arquivo config.js
         const longitudeResponse = await fetch(
           `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Longitude`,
           requestOptions
         );
         const longitudeData = await longitudeResponse.json();
-        const longitude = longitudeData.value; // Pega o valor da longitude
+        const longitude = longitudeData.value;
 
         const newPosition = [latitude, longitude];
 
         if (newPosition[0] === 0 && newPosition[1] === 0) {
-          setError("Rastreador desativado"); // Se a posição continuar como [0,0], mostra erro
+          setError("Rastreador desativado");
         } else {
-          setPosition(newPosition); // Atualiza a posição no estado
-          setError(null); // Reseta o erro se a requisição for bem-sucedida
+          setPosition(newPosition); 
+          setError(null);
         }
 
-        // Atualiza o marcador diretamente sem alterar o estado toda hora
         if (markerRef.current) {
           markerRef.current.setLatLng(newPosition);
         }
       } catch (err) {
         setError("Rastreador desativado: " + err.message);
       } finally {
-        setLoading(false); // Finaliza o carregamento após a primeira tentativa
+        setLoading(false); 
       }
     };
 
-    fetchPosition(); // Busca inicial
+    fetchPosition();
 
-    const interval = setInterval(fetchPosition, 5000); // Atualiza a cada 5 segundos
+    const interval = setInterval(fetchPosition, 5000);
 
-    return () => clearInterval(interval); // Limpa o intervalo quando o componente desmonta
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -89,8 +85,8 @@ function LiveTracker() {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           <Marker
-            position={position} // Posição inicial
-            ref={markerRef} // Atribuímos a referência ao marcador
+            position={position} 
+            ref={markerRef} 
           >
             <Popup>
               Posição Atual: {position[0]}, {position[1]}

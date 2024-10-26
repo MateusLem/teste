@@ -151,7 +151,7 @@ const Game = () => {
                 <a className="cta" href="#">
                   <span>START</span>
                   <span>
-                    <svg
+                    {/* <svg
                       width="50px"
                       height="50px"
                       viewBox="0 0 66 43"
@@ -182,7 +182,7 @@ const Game = () => {
                           fill="#FFFFFF"
                         ></path>
                       </g>
-                    </svg>
+                    </svg> */}
                   </span>
                 </a>
               </div>
