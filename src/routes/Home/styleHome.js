@@ -7,35 +7,93 @@ export const MainHome = styled.main`
     flex-direction: column;
     font-family: "Rajdhani", sans-serif;
 
+    h1{
+        color: white;
+    }
+
     .btn{
         position: absolute;
         z-index: 3;
-        margin-left: 2%;
+        margin-left: 7%;
         margin-top: 2%;
-        width: 110px;
+        width: 220px;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        color:#00C0F9;
+        border: #00C0F9 4px solid;
+        padding: 0.25em 1em;
+        border-radius: 0.25em;
+        text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.55), 0 0 0.5em currentColor;
+        box-shadow: inset 0 0 0.5em 0 #00C0F9, 0 0 0.5em 0 #00C0F9;
     }
+    
+
+    .btn::before {
+	pointer-events: none;
+	content: "";
+	position: absolute;
+	background: #00C0F9;
+	top: 120%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	transform: perspective(1.2em) rotateX(40deg) scale(1.3, 0.5);
+	filter: blur(1.15em);
+	opacity: 0.7;
+
+	transition: transform 0.5s linear;
+}
+
+.btn::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	box-shadow: 0 0 4em 0.6em #00C0F9, 0 0 1em 0.2em white;
+	opacity: 0;
+	background: #00C0F9;
+	z-index: -1;
+	transition: opacity 0.5s linear;
+}
+
+.btn:hover,
+.btn:focus {
+	color:#00C0F9;
+	text-shadow: none;
+}
+
+.btn:hover::before,
+.btn:focus::before {
+	opacity: 1;
+	transform: perspective(1.10em) rotateX(40deg) scale(1.5, 0.6);
+	transition: transform 0.5s linear;
+}
+
+.btn:hover::after,
+.btn:focus::after {
+	opacity: 1;
+}
+
 
     .game{
+        display: flex;
         background-color: transparent;
         border-style: none;
         cursor: pointer;
         color: #00C0F9;
         font-family: "Rajdhani", sans-serif;
-        font-weight: 700;
-        font-size: large;
+        font-weight: 500;
+        font-size: 40px;
         transition: transform 0.3s ease;
     }
 
-    .game:hover{
-        border-radius: 20px;
-        transform: translateX(10px);
-        background-color: #DC00FE;
-        color: white;
-    }
-
     .game img{
-        width: 35px;
-        margin-right: 5%;
+        width: 45px;
+        margin-right: 8%;
     }
 
     a{
@@ -62,6 +120,7 @@ export const MainHome = styled.main`
         font-family: "Rajdhani", sans-serif;
         font-weight: bold;
         color: white;
+        font-size:large;
         margin-top: 15px;
         background-color: #00C0F9;
         border-style: none;
@@ -69,10 +128,32 @@ export const MainHome = styled.main`
         display: flex;
         justify-content: center;
     }
-    .btn_sign:hover{
-        cursor: pointer;
-        background-color: #8929a2;
+    .btn_sign:hover {
+    cursor: pointer;
+    animation: moveAcross 1.4s ease forwards;
+}
+
+    @keyframes moveAcross {
+        0% {
+            transform: translateX(0);
+            background-color: #8929a2;
+        }
+        25% {
+            transform: translateX(100%);
+        }
+        26%{
+            opacity:0;
+            transform: translateX(-30%);
+        }
+        74% {
+            opacity:1;
+        }
+        100% {
+            transform: translateX(0);
+            background-color: #8929a2;
+        }
     }
+    
 
     .btn_sign p{
         margin-top: 7%;
@@ -99,6 +180,7 @@ export const MainHome = styled.main`
 
     .podioList{
         flex-direction: column;
+        width:100%;
     }
 
     .podioList h1{
@@ -116,59 +198,45 @@ export const MainHome = styled.main`
     }
 
     .line{
-        height: 300px;
+        height: 100%;
         width: 5px;
         background-color: #00C0F9;
         margin-left: 8%;
         margin-right: 1%;
     }
 
-    .first{
+    .racer_podio{
         display: flex;
         align-content: center;
-        width: 350px;
-        height: 80px;
+        width: 100%;
+        height: 15vh;
         background-color: #312c9f;
         transition: transform 0.3s ease, background-color 0.3s ease;
+        margin-top:2%;
     }
-
-    .first:hover{
+    .racer_podio:hover{
         cursor: pointer;
-        transform: translateX(-10px);
-    }
-
-    .second{
-        display: flex;
-        width: 350px;
-        height: 80px;
-        background-color: #312c9f;
-        margin-top: 8%;
-        margin-bottom: 8%;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .second:hover{
-        cursor: pointer;
-        transform: translateX(-10px);
-    }
-
-    .third{
-        display: flex;
-        width: 350px;
-        height: 80px;
-        background-color: #312c9f;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-        
-    }
-
-    .third:hover{
-        cursor: pointer;
-        transform: translateX(-10px);
+        transform: translateX(+10px);
     }
 
     .calendar{
         display: flex;
         margin-right: 5%;
+    }
+    .calendar:hover{
+        transform: translateY(-10px);
+        transition: transform 0.5s ease;
+        button:hover{
+            transform:scale(1.1);
+        }
+        
+    }
+    .calendar:active{
+        transform: translateY(-10px);
+        transition: transform 0.5s ease;
+        button:hover{
+            transform:scale(0.9);
+        }
     }
 
     .circuito_img{
@@ -201,7 +269,6 @@ export const MainHome = styled.main`
     .date button a{
        color: white;
     }
-    /* breakpoint tablet */
     @media (max-width: 850px) {
         .txt_car{
             width: 60%;
@@ -219,22 +286,14 @@ export const MainHome = styled.main`
         .podio{
             display: flex;
             justify-content: center;
-            width: 100%;
+            height: 30vh;
+        }
+        .racer_podio{
+            height: 10vh;
         }
         .line{
-            height: 330px;
             width: 5px;
-            background-color: #00C0F9;
             margin-left: 1%;
-        }
-        .first{
-            width: 65vw;
-        }
-        .second{
-            width: 65vw;
-        }
-        .third{
-            width: 65vw;
         }
         .calendar{
             margin-top: 10%;
@@ -243,14 +302,24 @@ export const MainHome = styled.main`
             margin-right: 0%;
         }
     }
-    /* breakpoint celular */
-    @media (max-width: 480px) {
+    @media (max-width: 500px) {
+        .btn{
+            width: 100px;
+        }
+
+        
         .game{
             font-size: small;
         }
         .game img{
             width: 20px;
         }
+
+        .car img{
+            width: 55%;
+        }
+
+
         .txt_car{
             width: 100%;
             font-size: medium;
@@ -281,21 +350,13 @@ export const MainHome = styled.main`
         }
 
         .line{
-            height: 31vh;
             width: 2px;
         }
-        .first{
-            width: 75vw;
-            height: 8vh;
-        }
-        .second{
-            width: 75vw;
-            height: 8vh;
-        }
-        .third{
-            width: 75vw;
-            height: 8vh;
-            margin-bottom: 10%;
+        .racer_podio{
+            height: 30%;
+            p{
+                font-size:100%;
+            }
         }
         .raceInfo{
             display: flex;

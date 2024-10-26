@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaInstagram, FaGithub } from 'react-icons/fa';
 // CSS
 import { FootFooter } from "../styleComponents"
 import { Modal } from "../styleComponents"
@@ -8,8 +9,7 @@ import LogoFiap from "../assets/fiap.png"
 import LogoMahindra from "../assets/LogoMahindra2.png"
 import LogoParceiro from "../assets/parceiro.png"
 import imgFooter from "../assets/imgFooter.png"
-import IconInsta from "../assets/instagram.png"
-import IconGit from "../assets/github.png"
+
 
 export default function Footer(){
     const [showModal, setShowModal] = useState(false);
@@ -90,15 +90,15 @@ export default function Footer(){
                 </div>
                 <hr />
                 <div className="base">
-                    <div className="icons">
-                        <a href="https://www.instagram.com/nxtftres?igsh=MWEzcXFxdHFkNHhvMA==" target="blank">
-                            <img src={IconInsta} alt="Instagram" />
+                    <div className="social-icons">
+                        <a className="social-link" href="https://www.instagram.com/nxtftres?igsh=MWEzcXFxdHFkNHhvMA==" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram className="social-icon" />
                         </a>
-                        <a href="https://github.com/NEXT-FUTURE-FIAP" target="blank">
-                            <img src={IconGit} alt="GitHub" />
+                        <a className="social-link" href="https://github.com/NEXT-FUTURE-FIAP" target="_blank" rel="noopener noreferrer">
+                            <FaGithub className="social-icon" />
                         </a>
                     </div>
-                    <p>@Site apenas para fins acadêmicos</p>
+                    <p className="footer-info">@Site apenas para fins acadêmicos</p>
                 </div>
             </FootFooter>
         </>

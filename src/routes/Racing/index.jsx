@@ -5,11 +5,14 @@ import countriesData from '../../data/countries.json'
 import Parceiro from '../../assets/parceiro.png'
 
 export default function Racing() {
+  localStorage.removeItem('gameStarted') 
 
     return (
       <MainRace>
         <div className="logo">
-            <a href="https://www.grandepremio.com.br/#google_vignettehttps://www.grandepremio.com.br/#google_vignette" target="_blank"><img src={Parceiro} alt="" /></a>
+            <a href="https://www.grandepremio.com.br/#google_vignettehttps://www.grandepremio.com.br/#google_vignette" target="_blank">
+              <img src={Parceiro} alt="" />
+            </a>
         </div>
         <div className="cards-container">
           {countriesData.map((corrida, index) => (

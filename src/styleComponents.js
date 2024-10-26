@@ -5,15 +5,22 @@ export const NavMenu = styled.nav`
     background-color: #180f57;
     min-height: 10vh;
     display: flex;
+    flex-direction:row;
     align-self: center;
     justify-content: space-between;
     align-content: center;
+
+    #logo-link{
+        padding:2rem
+    }
     
     .logo{
         height: 60px;
     }
 
     .menu{
+        display: flex;
+        flex-direction:row;
         margin-top: 2%;
     }
 
@@ -35,7 +42,6 @@ export const NavMenu = styled.nav`
         width: 20px;
     }
 
-    /* breakpoint tablet */
     @media (max-width: 850px) {
         .logo{
             height: 80px;
@@ -49,8 +55,10 @@ export const NavMenu = styled.nav`
             margin-right: 35px;
         }
     }
-    /* breakpoint celular */
-    @media (max-width: 480px) {
+    @media (max-width: 500px) {
+        #logo-link{
+            padding:0rem
+        }
         .logo{
             height: 50px;
             margin: 10px;
@@ -111,13 +119,13 @@ export const FootFooter = styled.footer`
         width: 100px;
         margin-left: 5%;
         margin-bottom: 4%;
+        padding: 5px;
         cursor: pointer;
         transition: transform 0.3s ease;
     }
 
     .logosFooter img:hover{
-        transform: translateY(-10px);
-    }
+        transform: translateY(-10px);    }
     
     .contato{
         display: flex;
@@ -152,16 +160,25 @@ export const FootFooter = styled.footer`
         margin-bottom: 1%;
     }
 
-    .base img{
-        width: 30px;
-        margin-left: 15px;
-        cursor: pointer;
+    .social-icons{
+        display: flex;
+        justify-content: space-around;
+        margin-left: 2%;
+    }
+    
+    .social-link {
+    color: white; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+    gap: 5px;
+    padding: 4px;
+    font-size: 20px; 
+}
+
+    .social-link:hover {
+        color: #DC00FE; 
     }
 
-    .icons{
-        display: flex;
-        margin-left: 1%;
-    }
 
     p{
         color: #00C0F9;
@@ -190,7 +207,7 @@ export const FootFooter = styled.footer`
 
     }
     /* breakpoint celular */
-    @media (max-width: 480px) {
+    @media (max-width: 500px) {
         .background{
              height: 6vh;
         }

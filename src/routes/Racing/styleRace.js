@@ -5,7 +5,7 @@ export const MainRace = styled.main`
     .logo{
         display: flex;
         width: 100%;
-        justify-content: end;
+        justify-content: center;
         padding: 25px;
         margin-top: 1%;
     }
@@ -17,10 +17,19 @@ export const MainRace = styled.main`
         margin-top: 2%;
         gap: 20px;
     }
+
+
     .card {
         min-height: 250px; 
         min-width: 200px;  
     }
+
+    .size:hover{
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), 
+                0 0 10px rgba(220, 0, 254, 0.5),
+                0 0 20px rgba(220, 0, 254, 0.7);
+    }
+
 
     .parceiro{
         display: flex;
@@ -111,7 +120,7 @@ export const MainRace = styled.main`
     }
 
 
-    @media (max-width: 480px) {
+    @media (max-width: 500px) {
 
         .logo img{
             width: 50px;

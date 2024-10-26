@@ -85,7 +85,6 @@ const Carta = styled.div`
 
 `;
 
-// Componente Card
 export default function Card({ imageSrc, title, videoUrl }) {
   const [showModal, setShowModal] = useState(false);
 

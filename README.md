@@ -1,6 +1,10 @@
 <img src="https://github.com/mareasea/gs-web/assets/136378912/0b0af4a1-55d6-415a-ba3a-4194c90dc2a7"  width="220px"> 
+</br>
+<a href = "https://fast-pace-nine.vercel.app/" target = "_blank">ACESSE O SITE</a>
+</br>
+</br>
 
-# VISÃO GERAL
+## VISÃO GERAL
 <p> Site informativo dedicado ao mundo das corridas, com um foco especial em destacar eventos e corredores de destaque. Este site oferece uma plataforma onde os entusiastas de corridas podem encontrar informações sobre as próximas corridas, visualizar pódios e acessar conteúdos relacionados a competições e jogos. Através de uma interface intuitiva e visualmente atraente, o site visa proporcionar uma experiência envolvente e informativa para seus usuários. </p>
 
 ## Funcionalidades
@@ -30,7 +34,7 @@
 ### Passos para executar
 1. Clone o repositório:
 ```
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/NEXT-FUTURE-FIAP/FrontSprint.git
 ```
 2. Instale as dependências:
 ```

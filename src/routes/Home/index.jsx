@@ -1,30 +1,48 @@
-// CSS
 import { MainHome } from "./styleHome";
-// links
 import { Link } from "react-router-dom";
-// imagens
 import Background from "../../assets/bc_img.png"
 import Car from "../../assets/car.png"
 import Controle from "../../assets/controle.png"
 
+
+const racers_podio = [
+    {name: 'Oliver Rowland',team: 'Nissan', ptn:'25'},
+    {name: 'Pascal Wehrlein',team: 'Porsche', ptn:'18'},
+    {name: 'Mitch Evans',team: 'Jaguar', ptn:'15'},
+    
+]
+
+const Podio = ({racer_data}) =>{
+    return (
+    <div className="podioList">
+        {racer_data.map(({name, team, ptn}, index)=>{
+            console.log(name, team, ptn)
+            return (
+            <div key={index} className="racer_podio">
+                <h1>{index+1}°</h1>
+                <div style={{display:'flex'}}>
+                    <p style={{width:'100%'}}>{name}</p>
+                    <p style={{color:'cyan'}}>{team}</p>
+                    <p style={{color:'white',width:'100%'}}>{ptn} pts</p>
+                </div>
+            </div>
+            
+            );
+        })}
+    </div>
+    );
+}
+
 export default function Home() {
-    const getUsuario = localStorage.getItem("usuario")
+    localStorage.removeItem('gameStarted') 
 
     return (
         <>
             <MainHome>
                 <img src={Background} alt="" />
-                {getUsuario ? (
                 <Link className="btn" to="/game">
-                <button className="game"><img src={Controle} alt="" />GAME</button>
-            </Link>
-
-            ):(
-                <Link className="btn" to="/login">
-                <button className="game"><img src={Controle} alt="" />GAME</button>
-            </Link>
-            )}
-
+                    <button className="game"><img src={Controle} alt="" />GAME</button>
+                </Link>
                 <section className="car">
                     <p className="txt_car">Viva a emoção da Fórmula E: onde a velocidade encontra a paixão!
                         <a href="https://www.fiaformulae.com/en" target="blank">
@@ -38,24 +56,13 @@ export default function Home() {
                     </p>
                     <img src={Car} alt="" />
                 </section>
-                <h1 className="titulo">Última Corrida</h1>
+                <h1 className="titulo">Pódio da Última Temporada</h1>
                 <section className="raceInfo">
                     <section className="podio">
                         <div className="line"></div>
-                        <div className="podioList">
-                            <div className="first">
-                                <h1>1°</h1>
-                                <p>FULANO</p>
-                            </div>
-                            <div className="second">
-                                <h1>2°</h1>
-                                <p>SICLANO</p>
-                            </div>
-                            <div className="third">
-                                <h1>3°</h1>
-                                <p>TATARANO</p>
-                            </div>
-                        </div>
+                        <a href="https://www.fiaformulae.com/en/results" target="blank">
+                            <Podio racer_data={racers_podio} />
+                        </a>
                     </section>
                     <section className="calendar">
                         <div className="circuito">
@@ -66,7 +73,9 @@ export default function Home() {
                             <h2>Circuito de Puebla</h2>
                             <p>dd/mm</p>
                             <p>00:00</p>
-                            <button><a href="https://www.fiaformulae.com/en/results?season=84467676-4d5d-4c97-ae07-0b7520bb95ea&race=d1551077-a122-4a70-894c-941345831ec4&tab=qualifying" target="_blank">MAIS INFORMAÇÕES</a></button>
+                            <button>
+                                <a href="https://www.fiaformulae.com/en/results?season=84467676-4d5d-4c97-ae07-0b7520bb95ea&race=d1551077-a122-4a70-894c-941345831ec4&tab=qualifying" target="_blank">MAIS INFORMAÇÕES</a>
+                            </button>
                         </div>
                     </section>
                 </section>

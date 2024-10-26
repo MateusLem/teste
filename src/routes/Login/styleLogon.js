@@ -8,8 +8,10 @@ export const SecLogin = styled.section`
     align-items: center;
     height: 60vh;
     color: white;
+    margin-top: 9%;
 
     .container {
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -35,6 +37,7 @@ export const SecLogin = styled.section`
     .w-input {
         position: relative;
         margin-bottom: 20px;
+        margin-top: 20px;
     }
 
     .input-form {
@@ -56,10 +59,11 @@ export const SecLogin = styled.section`
     }
 
     input::placeholder {
-        color: rgba(255, 255, 255, 0.6);
+        color: rgb(220, 0, 254, 0.5);
     }
 
     .login-btn {
+        padding: 10px;
         display: flex;
         justify-content: center;
     }
@@ -89,8 +93,9 @@ export const SecLogin = styled.section`
 
     .uteis {
         display: flex;
-        justify-content: space-between;
+        justify-content: end;
         margin-top: 20px;
+        margin-bottom: 10px;
         list-style: none;
         padding: 0;
     }
@@ -107,6 +112,9 @@ export const SecLogin = styled.section`
     .uteis li a:hover {
         color: #8929a2;
     }
+
+
+
 `;
 
 export const SecCad = styled.section`
@@ -139,9 +147,11 @@ export const SecCad = styled.section`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 20px;
 }
 
 input {
+    font-family: 'Rajdhani', sans-serif;
     background-color: transparent;
     border: none;
     border-radius: 10px;
@@ -198,7 +208,7 @@ a svg {
     font-size: 24px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .usuario {
         width: 90%;
     }
