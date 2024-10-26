@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { API_BASE_URL } from "../../config"; // Importa o endereço IP do config.js
+import { API_BASE_URL } from "../../../public/config"; // Importa o endereço IP do config.js
 import { MainHome } from "../Home/styleHome";
 
 // Definir o cabeçalho para as requisições
