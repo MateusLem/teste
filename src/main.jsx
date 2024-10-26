@@ -13,6 +13,7 @@ import Login from './routes/Login/Login.jsx'
 import CadUsuarios from './routes/Login/CadastroUsuario.jsx'
 import LiveTracker from './routes/Mapa/index.jsx'
 import LiveGraph from './routes/Grafico/Grafico.jsx'
+import User from './routes/User/index.jsx'
 
 const router = createBrowserRouter([
   {
