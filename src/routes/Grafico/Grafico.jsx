@@ -79,17 +79,16 @@ function LiveGraph() {
 
   return (
     <div>
-      <MainHome style={{ textAlign: 'center', alignContent:'center', alignItems:'center' }}>
+      <MainHome style={{ textAlign: 'center', alignContent: 'center', alignItems: 'center' }}>
         <h1>Gráfico de Temperatura e Umidade ao Vivo</h1>
         {loading ? (
           <p style={{ color: 'white' }}>Carregando gráfico...</p>
         ) : error ? (
           <p style={{ color: 'red' }}>{error}</p>
         ) : (
-          <div style={{height: "80vh"}}>
+          <div style={{ width: '80%', height: '80vh', margin: '0 auto' }}>
             <Line data={data} options={options} />
           </div>
-          
         )}
       </MainHome>
     </div>
