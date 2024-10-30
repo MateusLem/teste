@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { API_BASE_URL } from '../../../public/config'
 import { MainHome } from '../Home/styleHome';
-
+import { enviormentData } from '../../../public/config';
 
 Chart.register(
   CategoryScale,
@@ -15,62 +14,29 @@ Chart.register(
   Legend
 );
 
-const myHeaders = new Headers();
-myHeaders.append("fiware-service", "smart");
-myHeaders.append("fiware-servicepath", "/");
-myHeaders.append("accept", "application/json");
-
-const requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow",
-};
-
 function LiveGraph() {
   const [temperatureData, setTemperatureData] = useState([]);
   const [humidityData, setHumidityData] = useState([]);
   const [labels, setLabels] = useState([]);
   const [error, setError] = useState(null); 
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+
+  const FetchData = async () => {
+    try {
+      await enviormentData(setTemperatureData, setHumidityData, setLabels);
+      setError(null);
+    } catch (err) {
+      console.error('Erro ao buscar os dados:', err);
+      setError("Erro ao buscar dados: " + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const temperatureResponse = await fetch(
-          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Temperatura`,
-          requestOptions
-        );
-        const temperatureData = await temperatureResponse.json();
-        const temperature = temperatureData.value || 0;
-        console.log('Temperatura:', temperatureData);
+    FetchData();
 
-        const humidityResponse = await fetch(
-          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Umidade`,
-          requestOptions
-        );
-        const humidityData = await humidityResponse.json();
-        const humidity = humidityData.value || 0;
-
-        console.log('Umidade:', humidityData);
-
-        const timestamp = new Date().toLocaleTimeString();
-
-        setTemperatureData((prevData) => [...prevData, temperature].slice(-10));
-        setHumidityData((prevData) => [...prevData, humidity].slice(-10));
-        setLabels((prevLabels) => [...prevLabels, timestamp].slice(-10));
-
-        setError(null);
-      } catch (err) {
-        console.error('Erro ao buscar os dados:', err); 
-        setError("Erro ao buscar dados: " + err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-
-    const interval = setInterval(fetchData, 5000); 
+    const interval = setInterval(FetchData, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -99,10 +65,10 @@ function LiveGraph() {
     responsive: true,
     scales: {
       x: {
-        type: 'category', 
+        type: 'category',
         ticks: {
           autoSkip: true,
-          maxTicksLimit: 10,
+          maxTicksLimit: 20,
         },
       },
       y: {
@@ -112,17 +78,19 @@ function LiveGraph() {
   };
 
   return (
-    
     <div>
-      <MainHome >
-      <h1 >Gráfico de Temperatura e Umidade ao Vivo</h1>
-      {loading ? (
-        <p style={{color: 'white'}}>Carregando gráfico...</p>
-      ) : error ? (
-        <p style={{ color: 'red' }}>{error}</p>
-      ) : (
-        <Line data={data} options={options} />
-      )}
+      <MainHome style={{ textAlign: 'center', alignContent:'center', alignItems:'center' }}>
+        <h1>Gráfico de Temperatura e Umidade ao Vivo</h1>
+        {loading ? (
+          <p style={{ color: 'white' }}>Carregando gráfico...</p>
+        ) : error ? (
+          <p style={{ color: 'red' }}>{error}</p>
+        ) : (
+          <div style={{height: "80vh"}}>
+            <Line data={data} options={options} />
+          </div>
+          
+        )}
       </MainHome>
     </div>
   );

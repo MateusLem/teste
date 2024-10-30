@@ -1,20 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import { API_BASE_URL } from "../../../public/config";
 import { MainHome } from "../Home/styleHome";
-
-const myHeaders = new Headers();
-myHeaders.append("fiware-service", "smart");
-myHeaders.append("fiware-servicepath", "/");
-myHeaders.append("accept", "application/json");
-
-const requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow",
-};
+import { geoPosition } from "../../../public/config";
 
 function LiveTracker() {
   const [position, setPosition] = useState([0, 0]);
@@ -24,51 +12,24 @@ function LiveTracker() {
   const markerRef = useRef(null);
 
   useEffect(() => {
-    const fetchPosition = async () => {
-      try {
-        const latitudeResponse = await fetch(
-          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Latitude`,
-          requestOptions
-        );
-        const latitudeData = await latitudeResponse.json();
-        const latitude = latitudeData.value;
+    const updatePosition = () => {
+      geoPosition(setPosition, setError);
 
-        const longitudeResponse = await fetch(
-          `${API_BASE_URL}/v2/entities/urn:ngsi-ld:next_gps/attrs/Longitude`,
-          requestOptions
-        );
-        const longitudeData = await longitudeResponse.json();
-        const longitude = longitudeData.value;
-
-        const newPosition = [latitude, longitude];
-
-        if (newPosition[0] === 0 && newPosition[1] === 0) {
-          setError("Rastreador desativado");
-        } else {
-          setPosition(newPosition);
-          setError(null);
-        }
-
-        if (markerRef.current) {
-          markerRef.current.setLatLng(newPosition);
-        }
-      } catch (err) {
-        setError("Rastreador desativado: " + err.message);
-      } finally {
-        setLoading(false);
+      if (markerRef.current) {
+        markerRef.current.setLatLng(position);
       }
     };
 
-    fetchPosition();
+    updatePosition();
 
-    const interval = setInterval(fetchPosition, 5000);
+    const interval = setInterval(updatePosition, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [position]);
 
   return (
     <div>
-      <MainHome style={{ textAlign: 'center', alignContent:'center',  alignItems:'center' }}>
+      <MainHome style={{ textAlign: 'center', alignContent:'center', alignItems:'center' }}>
         <h1>Rastreador ao Vivo</h1>
         {loading ? (
           <p style={{ color: "white" }}>Mapa carregando...</p>
@@ -94,8 +55,6 @@ function LiveTracker() {
             </Marker>
           </MapContainer>
         )}
-
-
       </MainHome>
     </div>
   );
